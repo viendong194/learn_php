@@ -1,4 +1,4 @@
-<?php
+  <?php
   if(isset($_GET['id'] )&& is_numeric($_GET['id'])){
     $id = $_GET['id'];
   }else if(isset($_POST['id']) && is_numeric($_POST['id'])){
