@@ -40,7 +40,7 @@
         break; 
   };
   // make the query
-  $q = "SELECT last_name,first_name AS name, DATE_FORMAT(registration_date,
+  $q = "SELECT last_name,first_name , DATE_FORMAT(registration_date,
     '%M %d, %Y') AS dr, user_id FROM users ORDER BY $order_by LIMIT $start,$display";
   $r = @mysqli_query($dbc, $q);  
   $num = mysqli_num_rows($r);
@@ -55,7 +55,7 @@
       <tr>
           <th align="left">Delete</th>
           <th align="left">Edit</th>
-          <th align="left"><a href="view_users.php?sort=fn">First Name</a>/th>
+          <th align="left"><a href="view_users.php?sort=fn">First Name</a></th>
           <th align="left"><a href="view_users.php?sort=ln">Last Name</a></th>
           <th align="left"><a href="view_users.php?sort=rrd">Date Registered</a></th>
       </tr>
@@ -65,8 +65,8 @@
     while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
               echo '<tr><td align="lef"><a href="delete_user.php?id='.$row['user_id'].'">Delete</a></td>
                         <td align="left"><a href="edit_user.php?id='.$row['user_id'].'">Edit</a>
-                        </td><td align="lef">' . $row['first_name'] . '</td>
-                        </td><td align="lef">' . $row['last_name'] . '</td>
+                        </td><td align="left">' . $row['first_name'] . '</td>
+                        </td><td align="left">' . $row['last_name'] . '</td>
                         <td align="left">' . $row['dr'] .'</td>
                     </tr>';
           };
